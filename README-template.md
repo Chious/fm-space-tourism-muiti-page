@@ -1,6 +1,6 @@
 # Frontend Mentor - Space tourism website solution
 
-This is a solution to the [Space tourism website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Space tourism website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -34,7 +34,7 @@ Users should be able to:
 
 Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
+Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
 
 Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
 
@@ -54,48 +54,93 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [Astro](https://astro.build/) - Web framework
+- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
+- Astro View Transitions - Smooth page transitions
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+#### Astro View Transitions API
 
-To see how you can add code snippets, see below:
+> tips: you can also find out react version [here](https://reactrouter.com/how-to/view-transitions) as well.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+I learned how to implement smooth page transitions using Astro's View Transitions API. This allows for seamless background image switching between pages without any jarring white flashes.
+
+Here's how I implemented custom fade animations:
+
+```javascript
+import { ClientRouter, fade, slide } from "astro:transitions";
+
+// Custom fade animation with 700ms duration
+const customFade = fade({ duration: 700 });
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+#### Persistent Elements During Page Transitions
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+I learned how to keep the Navbar persistent across page transitions using the `transition:persist` attribute:
+
+```astro
+<nav
+  transition:persist
+  transition:animate="fade"
+>
+  <!-- Navbar content -->
+</nav>
+```
+
+This ensures the navigation bar stays visible during page transitions, creating a smoother user experience.
+
+#### Background Image Transitions
+
+I implemented smooth background image transitions by:
+
+1. Using `transition:name` to identify elements that should transition
+2. Applying custom fade animations to background images
+3. Setting a black background to prevent white flashes during image loading
+
+```astro
+<div
+  class="background-container"
+  transition:name="background"
+  transition:animate={customFade}
+>
+  <Image src={backgroundDesktop} transition:name="background-desktop" />
+</div>
+```
+
+#### Responsive Image Loading with Astro Image
+
+I learned how to use Astro's optimized Image component with different sources for mobile, tablet, and desktop:
+
+```astro
+{backgroundMobile && (
+  <Image
+    src={backgroundMobile}
+    class="block md:hidden"
+    transition:name="background-mobile"
+    transition:animate={customFade}
+  />
+)}
+```
+
+This ensures users get appropriately sized images for their devices while maintaining the smooth transition effect.
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+Areas for future improvement:
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- **Advanced View Transitions**: Explore more complex transition effects like slide animations for different directions (forward/back navigation)
+- **Performance Optimization**: Further optimize image loading and implement lazy loading for non-critical images
+- **Accessibility**: Enhance keyboard navigation and screen reader support for the mobile menu and transitions
+- **Animation Timing**: Fine-tune transition durations based on user feedback to find the optimal balance between smoothness and speed
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Astro View Transitions Documentation](https://docs.astro.build/zh-tw/reference/modules/astro-transitions/) - Comprehensive guide on implementing smooth page transitions in Astro. This helped me understand the `transition:persist`, `transition:name`, and `transition:animate` attributes.
+- [Astro Image Optimization](https://docs.astro.build/zh-tw/guides/images/) - Official documentation on Astro's Image component for optimized image loading.
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs) - Essential reference for utility-first CSS styling.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+These resources were crucial in implementing the smooth page transitions and responsive image loading throughout the project.
 
 ## Author
 

@@ -1,0 +1,23 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import backgroundMobile from '@/assets/destination/background-destination-mobile.jpg';
+import backgroundTablet from '@/assets/destination/background-destination-tablet.jpg';
+import backgroundDesktop from '@/assets/destination/background-destination-desktop.jpg';
+---
+
+<Layout 
+	title="Space Tourism | Destination"
+	backgroundMobile={backgroundMobile}
+	backgroundTablet={backgroundTablet}
+	backgroundDesktop={backgroundDesktop}
+>
+	<main class="relative w-full min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 pt-24">
+		<div class="container mx-auto max-w-7xl">
+			<h1 class="text-white text-preset-5 uppercase">
+				<span class="text-white/25 font-bold mr-4">01</span>
+				Pick your destination
+			</h1>
+			<!-- Destination content will go here -->
+		</div>
+	</main>
+</Layout>
