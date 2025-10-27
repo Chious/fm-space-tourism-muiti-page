@@ -44,3 +44,37 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## 🚀 Deployment to GitHub Pages
+
+This project is configured to deploy to GitHub Pages automatically.
+
+### Setup Instructions
+
+1. Push your code to GitHub:
+
+   ```sh
+   git add .
+   git commit -m "Configure GitHub Pages deployment"
+   git push origin main
+   ```
+
+2. Enable GitHub Pages in your repository:
+
+   - Go to your repository on GitHub
+   - Click on **Settings** → **Pages**
+   - Under **Build and deployment**:
+     - **Source**: Select **GitHub Actions**
+   - Save the settings
+
+3. The site will be available at:
+   `https://chious.github.io/fm-space-tourism-muiti-page/`
+
+### Automatic Deployment
+
+Every time you push to the `main` branch, the GitHub Action will automatically:
+
+- Build your Astro site
+- Deploy it to GitHub Pages
+
+You can monitor the deployment progress in the **Actions** tab of your GitHub repository.
