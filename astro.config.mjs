@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 import { fileURLToPath } from "node:url";
 import { loadEnv } from "vite";
+import { imagetools } from "vite-imagetools";
 
 const env = loadEnv("", process.cwd(), "");
 
@@ -14,7 +15,7 @@ export default defineConfig({
   site: env.SITE_URL || "YOUR_GITHUB_URL_HERE",
   base: env.BASE_PATH || "YOUR_REPO_HERE",
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), imagetools()],
     resolve: {
       alias: {
         "@": fileURLToPath(new URL("./src", import.meta.url)),

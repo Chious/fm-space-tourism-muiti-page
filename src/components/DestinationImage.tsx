@@ -2,11 +2,10 @@ import { useStore } from "@nanostores/react";
 import { selectedDestination } from "@/atoms/destinationStore";
 import { useEffect, useState } from "react";
 
-// Import as URLs - Vite will process these
-import moonImg from "@/assets/destination/image-moon.png";
-import marsImg from "@/assets/destination/image-mars.png";
-import europaImg from "@/assets/destination/image-europa.png";
-import titanImg from "@/assets/destination/image-titan.png";
+import moonImg from "@/assets/destination/image-moon.png?format=webp&w=364";
+import marsImg from "@/assets/destination/image-mars.png?format=webp&w=364";
+import europaImg from "@/assets/destination/image-europa.png?format=webp&w=364";
+import titanImg from "@/assets/destination/image-titan.png?format=webp&w=364";
 
 const destinationImages: Record<string, any> = {
   moon: moonImg,
@@ -30,13 +29,17 @@ export default function DestinationImage() {
       <img
         src={initialImg.src || initialImg}
         alt="Moon destination"
-        className="w-full max-w-md"
+        className="w-full max-w-[364px] h-auto"
+        fetchPriority="high"
+        loading="eager"
+        width={364}
+        height={364}
       />
     );
   }
 
   return (
-    <div className="w-full max-w-md relative">
+    <div className="w-full max-w-[364px] relative">
       {Object.entries(destinationImages).map(([name, img]) => {
         const imgSrc = typeof img === "string" ? img : img.src;
         return (
@@ -44,12 +47,15 @@ export default function DestinationImage() {
             key={name}
             src={imgSrc}
             alt={`${name} destination`}
-            className={`w-full transition-opacity duration-500 ${
+            className={`w-full h-auto transition-opacity duration-500 ${
               destination === name
                 ? "opacity-100 relative"
                 : "opacity-0 absolute inset-0 pointer-events-none"
             }`}
             loading={name === "moon" ? "eager" : "lazy"}
+            fetchPriority={name === "moon" ? "high" : "auto"}
+            width={364}
+            height={364}
           />
         );
       })}

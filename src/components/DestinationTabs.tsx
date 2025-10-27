@@ -85,7 +85,7 @@ export default function DestinationTabs({
   return (
     <div className="w-full h-full">
       <Tabs value={value} onValueChange={handleValueChange}>
-        <TabsList className="grid w-full grid-cols-4 bg-transparent gap-4">
+        <TabsList className="grid w-full grid-cols-4 bg-transparent gap-4 pl-0 lg:pr-20">
           {data.map((destination) => (
             <TabsTrigger
               key={destination.name}
