@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Bellefair&family=Barlow+Condensed:wght@400&family=Barlow:wght@400&display=swap");
+
+@theme {
+  /* ===== COLORS ===== */
+  --color-blue-900: #0b0d17;
+  --color-blue-300: #d0d6f9;
+  --color-white: #ffffff;
+
+  /* ===== FONT FAMILIES ===== */
+  --font-family-bellefair: "Bellefair", serif;
+  --font-family-barlow-condensed: "Barlow Condensed", sans-serif;
+  --font-family-barlow: "Barlow", sans-serif;
+
+  /* ===== SPACING ===== */
+  --spacing-25: 2px;
+  --spacing-50: 4px;
+  --spacing-100: 8px;
+  --spacing-150: 12px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+  --spacing-600: 48px;
+  --spacing-800: 64px;
+  --spacing-1000: 80px;
+  --spacing-1200: 96px;
+  --spacing-1600: 128px;
+
+  /* ===== TYPOGRAPHY - FONT SIZES ===== */
+  --font-size-preset-1: 144px;
+  --font-size-preset-2: 100px;
+  --font-size-preset-3: 56px;
+  --font-size-preset-4: 32px;
+  --font-size-preset-5: 28px;
+  --font-size-preset-6: 28px;
+  --font-size-preset-7: 14px;
+  --font-size-preset-8: 16px;
+  --font-size-preset-9: 18px;
+
+  /* ===== TYPOGRAPHY - LINE HEIGHTS ===== */
+  --line-height-preset-1: 171.9%;
+  --line-height-preset-2: 114.6%;
+  --line-height-preset-3: 64.2%;
+  --line-height-preset-4: 36.7%;
+  --line-height-preset-5: 33.6%;
+  --line-height-preset-6: 32.1%;
+  --line-height-preset-7: 16.8%;
+  --line-height-preset-8: 19.2%;
+  --line-height-preset-9: 180%;
+
+  /* ===== TYPOGRAPHY - LETTER SPACING ===== */
+  --letter-spacing-preset-1: 0px;
+  --letter-spacing-preset-2: 0px;
+  --letter-spacing-preset-3: 0px;
+  --letter-spacing-preset-4: 0px;
+  --letter-spacing-preset-5: 4px;
+  --letter-spacing-preset-6: 0px;
+  --letter-spacing-preset-7: 2px;
+  --letter-spacing-preset-8: 2px;
+  --letter-spacing-preset-9: 0px;
+}
+
+/* ===== TYPOGRAPHY UTILITY CLASSES ===== */
+/* Text Preset 1 - Bellefair Regular 144px */
+.text-preset-1 {
+  font-family: var(--font-family-bellefair);
+  font-size: var(--font-size-preset-1);
+  line-height: var(--line-height-preset-1);
+  letter-spacing: var(--letter-spacing-preset-1);
+  font-weight: 400;
+}
+
+/* Text Preset 2 - Bellefair Regular 100px */
+.text-preset-2 {
+  font-family: var(--font-family-bellefair);
+  font-size: var(--font-size-preset-2);
+  line-height: var(--line-height-preset-2);
+  letter-spacing: var(--letter-spacing-preset-2);
+  font-weight: 400;
+}
+
+/* Text Preset 3 - Bellefair Regular 56px */
+.text-preset-3 {
+  font-family: var(--font-family-bellefair);
+  font-size: var(--font-size-preset-3);
+  line-height: var(--line-height-preset-3);
+  letter-spacing: var(--letter-spacing-preset-3);
+  font-weight: 400;
+}
+
+/* Text Preset 4 - Bellefair Regular 32px */
+.text-preset-4 {
+  font-family: var(--font-family-bellefair);
+  font-size: var(--font-size-preset-4);
+  line-height: var(--line-height-preset-4);
+  letter-spacing: var(--letter-spacing-preset-4);
+  font-weight: 400;
+}
+
+/* Text Preset 5 - Barlow Condensed Regular 28px */
+.text-preset-5 {
+  font-family: var(--font-family-barlow-condensed);
+  font-size: var(--font-size-preset-5);
+  line-height: var(--line-height-preset-5);
+  letter-spacing: var(--letter-spacing-preset-5);
+  font-weight: 400;
+}
+
+/* Text Preset 6 - Bellefair Regular 28px */
+.text-preset-6 {
+  font-family: var(--font-family-bellefair);
+  font-size: var(--font-size-preset-6);
+  line-height: var(--line-height-preset-6);
+  letter-spacing: var(--letter-spacing-preset-6);
+  font-weight: 400;
+}
+
+/* Text Preset 7 - Barlow Condensed Regular 14px */
+.text-preset-7 {
+  font-family: var(--font-family-barlow-condensed);
+  font-size: var(--font-size-preset-7);
+  line-height: var(--line-height-preset-7);
+  letter-spacing: var(--letter-spacing-preset-7);
+  font-weight: 400;
+}
+
+/* Text Preset 8 - Barlow Condensed Regular 16px */
+.text-preset-8 {
+  font-family: var(--font-family-barlow-condensed);
+  font-size: var(--font-size-preset-8);
+  line-height: var(--line-height-preset-8);
+  letter-spacing: var(--letter-spacing-preset-8);
+  font-weight: 400;
+}
+
+/* Text Preset 9 - Barlow Regular 18px */
+.text-preset-9 {
+  font-family: var(--font-family-barlow);
+  font-size: var(--font-size-preset-9);
+  line-height: var(--line-height-preset-9);
+  letter-spacing: var(--letter-spacing-preset-9);
+  font-weight: 400;
+}
