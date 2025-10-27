@@ -47,6 +47,14 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 ## 🚀 Deployment to GitHub Pages
 
+`.env` used for development
+
+```shell
+cp .env.example .env
+```
+
+you should defined `BASE_PATH` and `SITE_URL` in repo secret.
+
 This project is configured to deploy to GitHub Pages automatically.
 
 ### Setup Instructions

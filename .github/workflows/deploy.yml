@@ -19,6 +19,12 @@ jobs:
 
       - name: Install, build, and upload your site
         uses: withastro/action@v3
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+          BASE_PATH: ${{ secrets.BASE_PATH }}
+        with:
+          node-version: 20
+          package-manager: npm@latest
 
   deploy:
     needs: build

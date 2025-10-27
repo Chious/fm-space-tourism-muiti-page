@@ -6,12 +6,15 @@ import hamburger from '@/assets/shared/icon-hamburger.svg';
 import closeIcon from '@/assets/shared/icon-close.svg';
 
 const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+// Ensure base has trailing slash
+const baseWithSlash = base.endsWith('/') ? base : `${base}/`;
 
 const navItems = [
-  { number: '00', name: 'HOME', path: '/' },
-  { number: '01', name: 'DESTINATION', path: '/destination' },
-  { number: '02', name: 'CREW', path: '/crew' },
-  { number: '03', name: 'TECHNOLOGY', path: '/technology' },
+  { number: '00', name: 'HOME', path: baseWithSlash },
+  { number: '01', name: 'DESTINATION', path: `${baseWithSlash}destination/` },
+  { number: '02', name: 'CREW', path: `${baseWithSlash}crew/` },
+  { number: '03', name: 'TECHNOLOGY', path: `${baseWithSlash}technology/` },
 ];
 
 ---
@@ -22,7 +25,7 @@ const navItems = [
   transition:animate="fade"
 >
   <!-- Logo -->
-  <a href="/" class="z-50">
+  <a href={base} class="z-50">
     <Image src={logo} alt="Space Tourism Logo" class="h-10 w-10 md:h-12 md:w-12" fetchpriority="high" format='webp' />
   </a>
 

@@ -1,6 +1,9 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import { fileURLToPath } from "node:url";
+import { loadEnv } from "vite";
+
+const env = loadEnv("", process.cwd(), "");
 
 import tailwindcss from "@tailwindcss/vite";
 
@@ -8,8 +11,8 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://chious.github.io",
-  base: "/fm-space-tourism-muiti-page/",
+  site: env.SITE_URL || "YOUR_GITHUB_URL_HERE",
+  base: env.BASE_PATH || "YOUR_REPO_HERE",
   vite: {
     plugins: [tailwindcss()],
     resolve: {
