@@ -3,6 +3,11 @@ import Layout from '@/layouts/Layout.astro';
 import backgroundMobile from '@/assets/destination/background-destination-mobile.jpg';
 import backgroundTablet from '@/assets/destination/background-destination-tablet.jpg';
 import backgroundDesktop from '@/assets/destination/background-destination-desktop.jpg';
+import data from "@/constants/data.json";
+import DestinationTabs from "@/components/DestinationTabs";
+import DestinationImage from '@/components/DestinationImage.tsx';
+
+const destinations = data.destinations;
 ---
 
 <Layout 
@@ -11,13 +16,22 @@ import backgroundDesktop from '@/assets/destination/background-destination-deskt
 	backgroundTablet={backgroundTablet}
 	backgroundDesktop={backgroundDesktop}
 >
-	<main class="relative w-full min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 pt-24">
+	<main class="relative w-full min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24">
 		<div class="container mx-auto max-w-7xl">
-			<h1 class="text-white text-preset-5 uppercase">
+			<h1 class="text-white text-preset-5 uppercase mb-20 text-center md:text-start lg:text-start">
 				<span class="text-white/25 font-bold mr-4">01</span>
 				Pick your destination
 			</h1>
-			<!-- Destination content will go here -->
+			
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-6">
+				<div class="flex justify-center">
+					<DestinationImage  client:load/>
+				</div>
+				
+				<div class="text-white">
+					<DestinationTabs client:load data={destinations}/>
+				</div>
+			</div>
 		</div>
 	</main>
 </Layout>
