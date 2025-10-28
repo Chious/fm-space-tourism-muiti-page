@@ -3,6 +3,11 @@ import Layout from '@/layouts/Layout.astro';
 import backgroundMobile from '@/assets/crew/background-crew-mobile.jpg';
 import backgroundTablet from '@/assets/crew/background-crew-tablet.jpg';
 import backgroundDesktop from '@/assets/crew/background-crew-desktop.jpg';
+import data from "@/constants/data.json";
+import CrewTab from "@/components/CrewTab.tsx";
+import CrewImage from "@/components/CrewImage.tsx";
+
+const crews = data.crew;
 ---
 
 <Layout 
@@ -11,13 +16,20 @@ import backgroundDesktop from '@/assets/crew/background-crew-desktop.jpg';
 	backgroundTablet={backgroundTablet}
 	backgroundDesktop={backgroundDesktop}
 >
-	<main class="relative w-full min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 pt-24">
-		<div class="container mx-auto max-w-7xl">
-			<h1 class="text-white text-preset-5 uppercase">
+<main class="relative w-full min-h-screen flex items-start justify-center px-6 md:px-12 lg:px-24 pt-8 md:pt-8">
+		<div class="container mx-auto max-w-7xl w-full">
+			<h1 class="text-white text-preset-5 uppercase text-center lg:text-start mb-8 md:mb-12 animate-fade-in-up">
 				<span class="text-white/25 font-bold mr-4">02</span>
 				Meet your crew
 			</h1>
-			<!-- Crew content will go here -->
+			
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full">
+				<CrewTab crew={crews} className="order-1" client:load />
+				
+				<div class="relative order-2 text-white lg:pl-12 flex items-center justify-center">
+					<CrewImage client:load />
+				</div>
+			</div>
 		</div>
 	</main>
 </Layout>

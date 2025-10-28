@@ -3,21 +3,30 @@ import Layout from '@/layouts/Layout.astro';
 import backgroundMobile from '@/assets/technology/background-technology-mobile.jpg';
 import backgroundTablet from '@/assets/technology/background-technology-tablet.jpg';
 import backgroundDesktop from '@/assets/technology/background-technology-desktop.jpg';
----
+import data from "@/constants/data.json";
+import TechnologyTab from "@/components/TechnologyTab.tsx";
+import TechnologyImage from "@/components/TechnologyImage.tsx";
 
+const technologies = data.technology;
+---
 <Layout 
 	title="Space Tourism | Technology"
 	backgroundMobile={backgroundMobile}
 	backgroundTablet={backgroundTablet}
 	backgroundDesktop={backgroundDesktop}
 >
-	<section class="relative w-full min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 pt-24">
-		<div class="container mx-auto max-w-7xl">
-			<h1 class="text-white text-preset-5 uppercase">
+<section class="relative w-full min-h-screen flex flex-col items-start justify-center px-0 md:pl-12  lg:pl-24 pt-8 md:pt-8">
+			<h1 class="text-white text-preset-5 uppercase text-center lg:text-start mb-8 md:mb-12 h-full animate-fade-in-up">
 				<span class="text-white/25 font-bold mr-4">03</span>
 				Space launch 101
 			</h1>
-			<!-- Technology content will go here -->
-		</div>
+			
+			<div class="grid grid-cols-1 lg:grid-cols-7  gap-8 lg:gap-12 items-center">
+				<TechnologyTab technologies={technologies} client:load />
+				
+				<div class="order-1 lg:order-3 text-white col-span-1 lg:col-span-3">
+					<TechnologyImage client:load />
+				</div>
+			</div>
 	</section>
 </Layout>

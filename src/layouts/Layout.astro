@@ -3,7 +3,7 @@ import '@/styles/global.css';
 import Navbar from '@/components/Navbar.astro';
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
-import { ClientRouter, fade, slide } from 'astro:transitions';
+import { ClientRouter, fade } from 'astro:transitions';
 
 interface Props {
   title?: string;
@@ -11,6 +11,10 @@ interface Props {
   backgroundTablet?: ImageMetadata;
   backgroundDesktop: ImageMetadata;
 }
+
+const base = import.meta.env.BASE_URL;
+const baseWithSlash = base.endsWith('/') ? base : `${base}/`;
+const favicon = `${baseWithSlash}favicon.png`;
 
 const {
   title = 'Frontend Mentor | Space Tourism',
@@ -27,7 +31,7 @@ const customFade = fade({ duration: 500 });
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href={favicon} />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Barlow+Condensed:wght@400&family=Barlow:wght@400&display=swap" rel="stylesheet">
@@ -72,7 +76,7 @@ const customFade = fade({ duration: 500 });
           transition:animate={customFade}
         />
       </div>
-      <div class="relative z-0 pt-20 md:pt-24">
+      <div id="main" class="relative z-0 pt-40 md:pt-40">
         <slot />
       </div>
     </main>
@@ -91,4 +95,5 @@ const customFade = fade({ duration: 500 });
     height: 100%;
     object-fit: cover;
   }
+
 </style>

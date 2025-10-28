@@ -104,29 +104,29 @@ export default function DestinationTabs({
             className="my-8"
           >
             <div className="space-y-2">
-              <h2 className="text-preset-2 text-white uppercase text-center lg:text-start">
+              <h2 className="text-preset-2 text-white uppercase text-center lg:text-start animate-pulse">
                 {destination.name}
               </h2>
-              <p className="text-preset-9 text-white/70 min-h-[120px] text-center lg:text-start leading-4">
+              <p className="text-preset-9 text-white/70 min-h-[160px] text-center lg:text-start leading-4 ">
                 {destination.description}
               </p>
 
-              <div className="flex gap-12 pt-8 border-t border-white/20 flex-col lg:flex-row">
-                <div>
+              <div className="flex gap-12 pt-8 border-t border-white/20 flex-col lg:flex-row ">
+                <div className="flex-1">
                   <h3 className="text-white/50 mb-6 text-preset-7 text-center lg:text-start">
                     AVG. DISTANCE
                   </h3>
-                  <span className="text-white uppercase text-preset-6 text-center lg:text-start">
+                  <p className="text-white uppercase text-preset-6 text-center lg:text-start w-full">
                     {destination.distance}
-                  </span>
+                  </p>
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3 className="text-white/50 mb-6 text-preset-7 text-center lg:text-start">
                     EST. TRAVEL TIME
                   </h3>
-                  <span className="text-white uppercase text-preset-6 text-center lg:text-start">
+                  <p className="text-white uppercase text-preset-6 text-center lg:text-start w-full">
                     {destination.travel}
-                  </span>
+                  </p>
                 </div>
               </div>
             </div>

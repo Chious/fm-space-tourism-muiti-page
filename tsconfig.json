@@ -12,6 +12,6 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "include": [".astro/types.d.ts", "src/vite-env.d.ts", "**/*"],
+  "include": [".astro/types.d.ts", "src/env.d.ts", "**/*"],
   "exclude": ["dist"]
 }
